@@ -17,6 +17,13 @@ const imagesRouter = require("./images/images.router");
 //? Initial Configs
 const app = express();
 
+//? Seeders
+// const createCategories = require("./utils/seeders/categories");
+// const createImagesPacks = require("./utils/seeders/images_packs");
+// const createImages = require("./utils/seeders/images");
+// const createProducts = require("./utils/seeders/products");
+// const createUsers = require("./utils/seeders/users");
+
 app.use(express.json());
 
 db.authenticate()
@@ -57,3 +64,10 @@ app.use("/api/v1/images", imagesRouter);
 app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);
 });
+
+//? Seeders
+// createCategories(db);
+// createImagesPacks(db);
+// createImages(db);
+// createProducts(db);
+// createUsers(db);
