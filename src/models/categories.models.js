@@ -20,7 +20,7 @@ const Categories = db.define(
     },
     status: {
       type: DataTypes.STRING,
-      defaultValue: "available",
+      defaultValue: "active",
       allowNull: false,
     },
   },

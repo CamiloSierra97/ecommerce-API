@@ -21,6 +21,7 @@ const createCategory = async (data) => {
     description: data.description,
     status: data.status,
   });
+  return newCategory;
 };
 
 const updateCategory = async (id, data) => {
@@ -29,6 +30,7 @@ const updateCategory = async (id, data) => {
       id,
     },
   });
+  return response;
 };
 
 const deleteCategory = async (id) => {

@@ -12,6 +12,7 @@ const authRouter = require("./auth/auth.router");
 const productsRouter = require("./products/products.router");
 const cartsRouter = require("./carts/carts.router");
 const purchasesRouter = require("./purchases/purchases.router");
+const imagesRouter = require("./images/images.router");
 
 //? Initial Configs
 const app = express();
@@ -51,6 +52,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", productsRouter);
 app.use("/api/v1/cart", cartsRouter);
 app.use("/api/v1/purchases", purchasesRouter);
+app.use("/api/v1/images", imagesRouter);
 
 app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);

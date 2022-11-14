@@ -1,31 +1,23 @@
 const db = require("../utils/database");
 
 const { DataTypes } = require("sequelize");
-const Products = require("./products.models");
-const Images = require("./images.models");
 
-const ImagesPacks = db.define("images_packs", {
-  id: {
-    type: DataTypes.UUID,
-    primaryKey: true,
-    allowNull: false,
-  },
-  productId: {
-    type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      key: "id",
-      model: Products,
+const ImagesPacks = db.define(
+  "images_packs",
+  {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false,
+    },
+    total: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
-  imageId: {
-    type: DataTypes.UUID,
-    allowNull: false,
-    references: {
-      key: "id",
-      model: Images,
-    },
-  },
-});
+  {
+    timestamps: false,
+  }
+);
 
 module.exports = ImagesPacks;

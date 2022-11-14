@@ -1,6 +1,7 @@
 const db = require("../utils/database");
 
 const { DataTypes } = require("sequelize");
+const ImagesPacks = require("./images_packs.models");
 
 const Images = db.define("images", {
   id: {
@@ -13,6 +14,14 @@ const Images = db.define("images", {
     allowNull: false,
     validate: {
       isUrl: true,
+    },
+  },
+  imagesPackId: {
+    type: DataTypes.UUID,
+    allowNull: false,
+    references: {
+      key: "id",
+      model: ImagesPacks,
     },
   },
 });

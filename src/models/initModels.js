@@ -21,12 +21,6 @@ const initModels = () => {
   Products.belongsToMany(Users, {
     through: Carts,
   });
-  Products.belongsToMany(Images, {
-    through: ImagesPacks,
-  });
-  Images.belongsToMany(Products, {
-    through: ImagesPacks,
-  });
 
   //? Carts relations
   Carts.belongsTo(Users);
@@ -36,18 +30,18 @@ const initModels = () => {
   Categories.hasMany(Products);
 
   //? ImagesPacks relations
-  ImagesPacks.belongsTo(Products);
-  ImagesPacks.belongsTo(Images);
+  ImagesPacks.hasOne(Products);
+  ImagesPacks.hasMany(Images);
 
   //? Images relations
   Images.hasOne(ImagesPacks);
 
   //? Products relations
   Products.hasMany(Carts);
-  Products.hasMany(ImagesPacks);
   Products.hasMany(PurchaseProducts);
   Products.belongsTo(Users);
   Products.belongsTo(Categories);
+  Products.belongsTo(ImagesPacks);
 
   //? PurchasePRoducts relations
   PurchaseProducts.belongsTo(Products);
