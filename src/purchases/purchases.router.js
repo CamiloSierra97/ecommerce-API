@@ -36,3 +36,5 @@ router
     adminValidate,
     purchaseServices.deletePurchase
   );
+
+module.exports = router;

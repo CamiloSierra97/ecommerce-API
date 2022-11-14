@@ -4,7 +4,6 @@ const cartServices = require("./carts.services");
 
 //? Protect routes
 const passport = require("passport");
-const adminValidate = require("../middlewares/role.middleware");
 require("../middlewares/auth.middleware")(passport);
 
 //? Routes
@@ -34,3 +33,5 @@ router
     passport.authenticate("jwt", { session: false }),
     cartServices.deleteCart
   );
+
+module.exports = router;
