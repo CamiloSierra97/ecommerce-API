@@ -17,7 +17,7 @@ const imagesRouter = require("./images/images.router");
 //? Initial Configs
 const app = express();
 
-//? Seeders
+//? Seeders functions
 // const createCategories = require("./utils/seeders/categories");
 // const createImagesPacks = require("./utils/seeders/images_packs");
 // const createImages = require("./utils/seeders/images");
@@ -65,7 +65,7 @@ app.listen(config.port, () => {
   console.log(`Server started at port ${config.port}`);
 });
 
-//? Seeders
+//? Seeders execution
 // createCategories(db);
 // createImagesPacks(db);
 // createImages(db);
