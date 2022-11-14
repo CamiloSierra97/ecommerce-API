@@ -34,7 +34,7 @@ const initModels = () => {
   ImagesPacks.hasMany(Images);
 
   //? Images relations
-  Images.hasOne(ImagesPacks);
+  Images.belongsTo(ImagesPacks);
 
   //? Products relations
   Products.hasMany(Carts);
