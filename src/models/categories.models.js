@@ -2,19 +2,21 @@ const db = require("../utils/database");
 
 const { DataTypes } = require("sequelize");
 
-const Categories = db.define("categories", {
+const Categories = db.define(
+  "categories",
+  {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
       allowNull: false,
     },
     name: {
-      type: DataTypes.UUID,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.UUID,
-      allowNull: false,
+      type: DataTypes.TEXT,
     },
     status: {
       type: DataTypes.STRING,

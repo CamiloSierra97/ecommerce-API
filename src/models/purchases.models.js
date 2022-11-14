@@ -10,6 +10,7 @@ const Purchases = db.define("purchases", {
   },
   street: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
   colony: {
     type: DataTypes.STRING,
