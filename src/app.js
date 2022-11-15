@@ -6,6 +6,12 @@ const whitelist = [
   "httP://localhost:5173",
   "https://sierra-ecommerce.onrender.com",
   "https://ecommerce-sierra.netlify.app/",
+  "https://ecommerce-sierra.netlify.app/api/v1/users",
+  "https://ecommerce-sierra.netlify.app/api/v1/auth",
+  "https://ecommerce-sierra.netlify.app/api/v1/products",
+  "https://ecommerce-sierra.netlify.app/api/v1/cart",
+  "https://ecommerce-sierra.netlify.app/api/v1/purchases",
+  "https://ecommerce-sierra.netlify.app/api/v1/images",
 ];
 const db = require("./utils/database");
 
