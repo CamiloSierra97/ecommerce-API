@@ -10,20 +10,14 @@ require("../middlewares/auth.middleware")(passport);
 //? Routes
 
 //? /api/v1/products
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  produtServices.getAllProducts
-);
+router.get("/", produtServices.getAllProducts);
 
 router
   .route("/:product_id")
-  .get(
-    passport.authenticate("jwt", { session: false }),
-    produtServices.getProductById
-  )
+  .get(produtServices.getProductById)
   .post(
     passport.authenticate("jwt", { session: false }),
+    adminValidate,
     produtServices.createProduct
   )
   .patch(
