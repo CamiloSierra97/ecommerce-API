@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const whitelist = [
   "http://localhost:9000",
+  "httP://localhost:5173",
   "https://sierra-ecommerce.onrender.com",
 ];
 const db = require("./utils/database");
