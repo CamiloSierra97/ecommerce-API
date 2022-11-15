@@ -1,5 +1,10 @@
 //? Dependencies
 const express = require("express");
+const cors = require("cors");
+const whitelist = [
+  "http://localhost:9000",
+  "https://sierra-ecommerce.onrender.com",
+];
 const db = require("./utils/database");
 
 //? Files
@@ -25,6 +30,11 @@ const app = express();
 // const createUsers = require("./utils/seeders/users");
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: whitelist,
+  })
+);
 
 db.authenticate()
   .then(() => {
