@@ -1,9 +1,29 @@
 //? Dependencies
 const uuid = require("uuid");
 const Products = require("../models/products.models");
+const ImagesPacks = require("../models/images_packs.models");
+const Images = require("../models/images.models");
 
 const getAllProducts = async () => {
-  const data = await Products.findAndCountAll();
+  const data = await Products.findAll({
+    attributes: {
+      exclude: ["imagesPackId"],
+    },
+    include: [
+      {
+        model: ImagesPacks,
+        attributes: {
+          exclude: ["id"],
+        },
+        include: {
+          model: Images,
+          attributes: {
+            exclude: ["imagesPackId"],
+          },
+        },
+      },
+    ],
+  });
   return data;
 };
 
