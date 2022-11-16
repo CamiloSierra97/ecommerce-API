@@ -21,14 +21,10 @@ router
   );
 
 router
-  .route("/cart_id")
+  .route("/:cart_id")
   .get(
     passport.authenticate("jwt", { session: false }),
     cartServices.getCartById
-  )
-  .post(
-    passport.authenticate("jwt", { session: false }),
-    cartServices.createCart
   )
   .patch(
     passport.authenticate("jwt", { session: false }),
@@ -38,5 +34,4 @@ router
     passport.authenticate("jwt", { session: false }),
     cartServices.deleteCart
   );
-
 module.exports = router;

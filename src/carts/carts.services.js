@@ -29,7 +29,8 @@ const getCartById = (req, res) => {
 
 const patchCart = (req, res) => {
   const id = req.params.cart_id;
-  const { amount } = req.body;
+  const amount = req.body;
+  console.log(amount);
   cartControllers
     .updateCart(id, { amount })
     .then((data) => {
@@ -50,7 +51,7 @@ const patchCart = (req, res) => {
 const createCart = (req, res) => {
   const amount = req.body.amount;
   const userId = req.user.id;
-  const productId = req.body.product_id;
+  const productId = req.body.productId;
   if (amount && userId && productId) {
     //? Controller execution
     cartControllers

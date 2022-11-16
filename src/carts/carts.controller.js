@@ -1,6 +1,9 @@
 //? Dependencies
 const uuid = require("uuid");
 const Carts = require("../models/carts.models");
+const Products = require("../models/products.models");
+const Users = require("../models/users.models");
+const Categories = require("../models/categories.models");
 
 const getAllCarts = async () => {
   const data = await Carts.findAndCountAll();
@@ -9,7 +12,33 @@ const getAllCarts = async () => {
 
 const getCartById = async (id) => {
   const data = await Carts.findOne({
-    where: id,
+    where: {
+      id,
+    },
+    attributes: {
+      exclude: ["userId", "productId"],
+    },
+    include: [
+      {
+        model: Users,
+        attributes: ["id", "firstName", "lastName", "email", "country"],
+      },
+      {
+        model: Products,
+        attributes: {
+          exclude: ["categoryId", "imagesPackId", "userId"],
+        },
+        include: [
+          {
+            model: Categories,
+          },
+          {
+            model: Users,
+            attributes: ["id", "firstName", "lastName", "email", "country"],
+          },
+        ],
+      },
+    ],
   });
   return data;
 };
