@@ -32,6 +32,23 @@ const getProductById = async (id) => {
     where: {
       id,
     },
+    attributes: {
+      exclude: ["imagesPackId"],
+    },
+    include: [
+      {
+        model: ImagesPacks,
+        attributes: {
+          exclude: ["id"],
+        },
+        include: {
+          model: Images,
+          attributes: {
+            exclude: ["imagesPackId"],
+          },
+        },
+      },
+    ],S
   });
   return data;
 };
