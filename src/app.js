@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const whitelist = [
   "http://localhost:9000",
-  "httP://localhost:5173",
+  "http://localhost:5173",
   "https://sierra-ecommerce.onrender.com",
   "https://ecommerce-sierra.netlify.app/",
   "https://ecommerce-sierra.netlify.app/api/v1/users",
