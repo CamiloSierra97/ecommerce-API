@@ -48,7 +48,7 @@ const getProductById = async (id) => {
           },
         },
       },
-    ],S
+    ],
   });
   return data;
 };
