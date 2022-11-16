@@ -9,11 +9,16 @@ require("../middlewares/auth.middleware")(passport);
 //? Routes
 
 //? /api/v1/cart
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  cartServices.getAllCarts
-);
+router
+  .route("/")
+  .get(
+    passport.authenticate("jwt", { session: false }),
+    cartServices.getAllCarts
+  )
+  .post(
+    passport.authenticate("jwt", { session: false }),
+    cartServices.createCart
+  );
 
 router
   .route("/cart_id")
