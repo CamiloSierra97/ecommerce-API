@@ -12,7 +12,6 @@ const Carts = db.define("carts", {
   },
   amount: {
     type: DataTypes.INTEGER,
-    defaultValue: 1,
     allowNull: false,
   },
   userId: {

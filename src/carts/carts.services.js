@@ -48,10 +48,10 @@ const patchCart = (req, res) => {
 };
 
 const createCart = (req, res) => {
-  const { amount } = req.body;
+  const amount = req.body.amount;
   const userId = req.user.id;
-  const productId = req.params.product_id;
-  if (amount) {
+  const productId = req.body.product_id;
+  if (amount && userId && productId) {
     //? Controller execution
     cartControllers
       .createCart({ amount, userId, productId })
@@ -66,7 +66,9 @@ const createCart = (req, res) => {
     res.status(400).json({
       message: "All fields must be completed",
       fields: {
-        amount: "string",
+        amount: "number",
+        userId: "string",
+        productId: "string",
       },
     });
   }
