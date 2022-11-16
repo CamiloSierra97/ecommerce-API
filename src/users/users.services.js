@@ -1,4 +1,5 @@
 const userControllers = require("./users.controllers");
+const { getUserCart } = require("../carts/carts.controller");
 
 const getAllUsers = (req, res) => {
   userControllers
@@ -74,7 +75,7 @@ const registerUser = (req, res) => {
         res.status(201).json(data);
       })
       .catch((err) => {
-        res.status(400).json(err);
+        res.status(400).json({ message: err.message });
       });
   } else {
     //? Error when data is missing
@@ -146,6 +147,21 @@ const deleteMyUser = (req, res) => {
     });
 };
 
+const getMyCart = (req, res) => {
+  const userId = req.user.id;
+  getUserCart(userId)
+    .then((data) => {
+      if (data) {
+        res.status(200).json(data);
+      } else {
+        res.status(404).json({ message: "Invalid ID" });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+
 module.exports = {
   getAllUsers,
   getUserById,
@@ -155,4 +171,5 @@ module.exports = {
   getMyUser,
   patchMyUser,
   deleteMyUser,
+  getMyCart,
 };

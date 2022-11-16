@@ -50,8 +50,8 @@ const patchCart = (req, res) => {
 
 const createCart = (req, res) => {
   const amount = req.body.amount;
-  const userId = req.user.id;
   const productId = req.body.productId;
+  const userId = req.user.id;
   if (amount && userId && productId) {
     //? Controller execution
     cartControllers
@@ -60,7 +60,7 @@ const createCart = (req, res) => {
         res.status(201).json(data);
       })
       .catch((err) => {
-        res.status(400).json({ message: err.message });
+        res.status(400).json({ message: err });
       });
   } else {
     //? Error when data is missing

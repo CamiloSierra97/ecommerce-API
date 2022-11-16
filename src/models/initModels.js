@@ -23,8 +23,8 @@ const initModels = () => {
   });
 
   //? Carts relations
-  Carts.belongsTo(Users);
   Carts.belongsTo(Products);
+  Carts.belongsTo(Users);
 
   //? Categories relations
   Categories.hasMany(Products);
@@ -49,6 +49,10 @@ const initModels = () => {
 
   //? Purchases relations
   Purchases.hasMany(PurchaseProducts);
+
+  //? Users relations
+  Users.hasMany(Products);
+  Users.hasMany(Carts);
 };
 
 module.exports = initModels;

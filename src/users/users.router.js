@@ -42,4 +42,10 @@ router
     userServices.deleteUser
   );
 
+router.get(
+  "/me/cart",
+  passport.authenticate("jwt", { session: false }),
+  userServices.getMyCart
+);
+
 module.exports = router;

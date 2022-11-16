@@ -34,8 +34,8 @@ const app = express();
 // const createCategories = require("./utils/seeders/categories");
 // const createImagesPacks = require("./utils/seeders/images_packs");
 // const createImages = require("./utils/seeders/images");
-// const createProducts = require("./utils/seeders/products");
 // const createUsers = require("./utils/seeders/users");
+// const createProducts = require("./utils/seeders/products");
 
 app.use(express.json());
 app.use(
@@ -75,7 +75,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/users", usersRouter);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", productsRouter);
-app.use("/api/v1/cart", cartsRouter);
+app.use("/api/v1/carts", cartsRouter);
 app.use("/api/v1/purchases", purchasesRouter);
 app.use("/api/v1/images", imagesRouter);
 
@@ -87,5 +87,5 @@ app.listen(config.port, () => {
 // createCategories(db);
 // createImagesPacks(db);
 // createImages(db);
-// createProducts(db);
 // createUsers(db);
+// createProducts(db);
