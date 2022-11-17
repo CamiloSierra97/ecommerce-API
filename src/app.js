@@ -19,11 +19,11 @@ const imagesRouter = require("./images/images.router");
 const app = express();
 
 //? Seeders functions
-// const createCategories = require("./utils/seeders/categories");
-// const createImagesPacks = require("./utils/seeders/images_packs");
-// const createImages = require("./utils/seeders/images");
-// const createUsers = require("./utils/seeders/users");
-// const createProducts = require("./utils/seeders/products");
+const createCategories = require("./utils/seeders/categories");
+const createImagesPacks = require("./utils/seeders/images_packs");
+const createImages = require("./utils/seeders/images");
+const createUsers = require("./utils/seeders/users");
+const createProducts = require("./utils/seeders/products");
 const whitelist = [
   "http://127.0.0.1:9000",
   "http://127.0.0.1:5173",
@@ -90,8 +90,8 @@ app.listen(config.port, () => {
 });
 
 //? Seeders execution
-// createCategories(db);
-// createImagesPacks(db);
-// createImages(db);
-// createUsers(db);
-// createProducts(db);
+createCategories(db);
+createImagesPacks(db);
+createImages(db);
+createUsers(db);
+createProducts(db);
