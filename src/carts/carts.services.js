@@ -68,7 +68,6 @@ const createCart = (req, res) => {
       message: "All fields must be completed",
       fields: {
         amount: "number",
-        userId: "string",
         productId: "string",
       },
     });

@@ -10,21 +10,22 @@ require("../middlewares/auth.middleware")(passport);
 //? Routes
 
 //? /api/v1/purchases
-router.get(
-  "/",
-  passport.authenticate("jwt", { session: false }),
-  purchaseServices.getAllPurchases
-);
+router
+  .route("/")
+  .get(
+    passport.authenticate("jwt", { session: false }),
+    purchaseServices.getAllPurchases
+  )
+  .post(
+    passport.authenticate("jwt", { session: false }),
+    purchaseServices.createPurchase
+  );
 
 router
   .route("/purchase_id")
   .get(
     passport.authenticate("jwt", { session: false }),
     purchaseServices.getPurchaseById
-  )
-  .post(
-    passport.authenticate("jwt", { session: false }),
-    purchaseServices.createPurchase
   )
   .patch(
     passport.authenticate("jwt", { session: false }),
