@@ -48,11 +48,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: whitelist,
-  })
-);
+app.use(cors());
 
 db.authenticate()
   .then(() => {
