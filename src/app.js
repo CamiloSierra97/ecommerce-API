@@ -24,14 +24,6 @@ const app = express();
 // const createImages = require("./utils/seeders/images");
 // const createUsers = require("./utils/seeders/users");
 // const createProducts = require("./utils/seeders/products");
-
-app.use(express.json());
-app.use(
-  cors({
-    origin: whitelist,
-  })
-);
-
 const whitelist = [
   "http://127.0.0.1:9000",
   "http://127.0.0.1:5173",
@@ -54,6 +46,13 @@ const corsOptions = {
     }
   },
 };
+
+app.use(express.json());
+app.use(
+  cors({
+    origin: whitelist,
+  })
+);
 
 db.authenticate()
   .then(() => {
