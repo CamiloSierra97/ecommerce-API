@@ -39,10 +39,10 @@ const getAllCarts = async () => {
   return data;
 };
 
-const getCartById = async (id) => {
+const getCartByProductId = async (productId) => {
   const data = await Carts.findOne({
     where: {
-      id,
+      productId,
     },
     attributes: {
       exclude: ["userId", "productId"],
@@ -126,7 +126,7 @@ const getUserCart = async (userId) => {
 
 module.exports = {
   getAllCarts,
-  getCartById,
+  getCartByProductId,
   createCart,
   updateCart,
   deleteCart,

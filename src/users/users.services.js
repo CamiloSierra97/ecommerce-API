@@ -1,5 +1,5 @@
 const userControllers = require("./users.controllers");
-const { getUserCart } = require("../carts/carts.controller");
+const { getUserCart } = require("../carts/carts.controllers");
 
 const getAllUsers = (req, res) => {
   userControllers

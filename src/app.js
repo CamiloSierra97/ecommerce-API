@@ -23,7 +23,8 @@ const app = express();
 // const createImagesPacks = require("./utils/seeders/images_packs");
 // const createImages = require("./utils/seeders/images");
 // const createUsers = require("./utils/seeders/users");
-const createProducts = require("./utils/seeders/products");
+// const createProducts = require("./utils/seeders/products");
+
 const whitelist = [
   "http://127.0.0.1:9000",
   "http://127.0.0.1:5173",
@@ -94,4 +95,4 @@ app.listen(config.port, () => {
 // createImagesPacks(db);
 // createImages(db);
 // createUsers(db);
-createProducts(db);
+// createProducts(db);

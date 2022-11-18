@@ -1,4 +1,4 @@
-const cartControllers = require("./carts.controller");
+const cartControllers = require("./carts.controllers");
 
 const getAllCarts = (req, res) => {
   cartControllers
@@ -11,10 +11,10 @@ const getAllCarts = (req, res) => {
     });
 };
 
-const getCartById = (req, res) => {
-  const id = req.params.cart_id;
+const getCartByProductId = (req, res) => {
+  const productId = req.params.product_id;
   cartControllers
-    .getCartById(id)
+    .getCartByProductId(productId)
     .then((data) => {
       if (data) {
         res.status(200).json(data);
@@ -28,8 +28,8 @@ const getCartById = (req, res) => {
 };
 
 const patchCart = (req, res) => {
-  const id = req.params.cart_id;
-  const amount = req.body;
+  const id = req.body.product_id;
+  const amount = req.body.amount;
   console.log(amount);
   cartControllers
     .updateCart(id, { amount })
@@ -92,7 +92,7 @@ const deleteCart = (req, res) => {
 
 module.exports = {
   getAllCarts,
-  getCartById,
+  getCartByProductId,
   patchCart,
   createCart,
   deleteCart,
