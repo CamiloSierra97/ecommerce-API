@@ -39,8 +39,8 @@ const getAllCarts = async () => {
   return data;
 };
 
-const getCartByProductId = async (productId) => {
-  const data = await Carts.findOne({
+const getCartByProductId = async (productId, data) => {
+  const response = await Carts.findOne({
     where: {
       productId,
     },
@@ -69,7 +69,7 @@ const getCartByProductId = async (productId) => {
       },
     ],
   });
-  return data;
+  return response;
 };
 
 const createCart = async (data) => {
@@ -82,10 +82,10 @@ const createCart = async (data) => {
   return newCart;
 };
 
-const updateCart = async (id, data) => {
+const updateProductCart = async (productId, data) => {
   const response = await Carts.update(data, {
     where: {
-      id,
+      productId,
     },
   });
   return response;
@@ -128,7 +128,7 @@ module.exports = {
   getAllCarts,
   getCartByProductId,
   createCart,
-  updateCart,
+  updateProductCart,
   deleteCart,
   getUserCart,
 };

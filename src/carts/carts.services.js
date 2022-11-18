@@ -27,19 +27,17 @@ const getCartByProductId = (req, res) => {
     });
 };
 
-const patchCart = (req, res) => {
-  const id = req.body.product_id;
+const patchProductCart = (req, res) => {
+  const productId = req.params.product_id;
   const amount = req.body.amount;
-  console.log(amount);
   cartControllers
-    .updateCart(id, { amount })
+    .updateProductCart(productId, { amount })
     .then((data) => {
       if (data[0]) {
         res
           .status(200)
-          .json({ message: `Cart with ID ${id}, edited succesfully` });
+          .json({ message: `Cart with ID ${productId}, edited succesfully` });
       } else {
-        y;
         res.status(404).json({ message: "Invalid ID or missing data" });
       }
     })
@@ -93,7 +91,7 @@ const deleteCart = (req, res) => {
 module.exports = {
   getAllCarts,
   getCartByProductId,
-  patchCart,
+  patchProductCart,
   createCart,
   deleteCart,
 };

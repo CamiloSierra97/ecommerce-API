@@ -17,6 +17,7 @@ const Carts = db.define("carts", {
   userId: {
     type: DataTypes.UUID,
     allowNull: false,
+    field: "user_id",
     references: {
       key: "id",
       model: Users,
@@ -25,6 +26,7 @@ const Carts = db.define("carts", {
   productId: {
     type: DataTypes.UUID,
     allowNull: false,
+    field: "productId",
     references: {
       key: "id",
       model: Products,

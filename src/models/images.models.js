@@ -19,6 +19,7 @@ const Images = db.define("images", {
   imagesPackId: {
     type: DataTypes.UUID,
     allowNull: false,
+    field: "images_pack_id",
     references: {
       key: "id",
       model: ImagesPacks,
