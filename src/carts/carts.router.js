@@ -8,7 +8,7 @@ require("../middlewares/auth.middleware")(passport);
 
 //? Routes
 
-//? /api/v1/cart
+//? /api/v1/carts
 router
   .route("/")
   .get(
@@ -31,10 +31,15 @@ router
     cartServices.deleteCart
   );
 
-router.get(
-  "/:product_id",
-  passport.authenticate("jwt", { session: false }),
-  cartServices.getCartByProductId
-);
+router
+  .route("/:product_id")
+  .get(
+    passport.authenticate("jwt", { session: false }),
+    cartServices.getCartByProductId
+  )
+  .patch(
+    passport.authenticate("jwt", { session: false }),
+    cartServices.patchCart
+  );
 
 module.exports = router;
