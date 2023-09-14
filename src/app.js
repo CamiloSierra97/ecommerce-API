@@ -23,19 +23,13 @@ const app = express();
 // const createImagesPacks = require("./utils/seeders/images_packs");
 // const createImages = require("./utils/seeders/images");
 // const createUsers = require("./utils/seeders/users");
-const createProducts = require("./utils/seeders/products");
+// const createProducts = require("./utils/seeders/products");
 
 const whitelist = [
   "http://127.0.0.1:9000",
   "http://127.0.0.1:5173",
   "https://sierra-ecommerce.onrender.com",
   "https://ecommerce-sierra.netlify.app/",
-  "https://ecommerce-sierra.netlify.app/api/v1/users",
-  "https://ecommerce-sierra.netlify.app/api/v1/auth",
-  "https://ecommerce-sierra.netlify.app/api/v1/products",
-  "https://ecommerce-sierra.netlify.app/api/v1/cart",
-  "https://ecommerce-sierra.netlify.app/api/v1/purchases",
-  "https://ecommerce-sierra.netlify.app/api/v1/images",
 ];
 
 const corsOptions = {
@@ -95,4 +89,4 @@ app.listen(config.port, () => {
 // createImagesPacks(db);
 // createImages(db);
 // createUsers(db);
-createProducts(db);
+// createProducts(db);
